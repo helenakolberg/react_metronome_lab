@@ -1,2 +1,10 @@
-// import React from 'react';
-// export default MetronomeSetter;
+import React from 'react';
+
+const MetronomeSetter = (props) => {
+    return (
+        <>
+        </>
+    )
+}
+
+export default MetronomeSetter;
