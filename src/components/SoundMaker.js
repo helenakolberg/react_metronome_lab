@@ -33,6 +33,10 @@ class SoundMaker extends Component {
         clearInterval(this.state.createSoundAtInterval);
     }
 
+    // handleChangeTempo() {
+    //     this.props.handle
+    // }
+
     handleClick() {
         if(this.state.createSoundAtInterval !== null) {
           this.stopMetronomeSound();
