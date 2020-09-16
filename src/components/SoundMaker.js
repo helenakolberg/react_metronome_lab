@@ -7,6 +7,15 @@ const SoundMaker = (props) => {
         snd.play();
     }
 
+     function runMetronomeSound() {
+         setInterval(() => {
+             beep();
+         }, 1000);
+     }
+    
+
+    // var interval = scope.setInterval(beep, 1000);
+
 
     // function handleClickPlay(event) {
 
@@ -18,7 +27,7 @@ const SoundMaker = (props) => {
 
     return (
         <>
-        <button id="play">Play</button>
+        <button id="play" onClick={runMetronomeSound}>Play</button>
         <button id="pause">Pause</button>
 
 
