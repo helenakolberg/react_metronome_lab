@@ -6,12 +6,14 @@ class SoundMaker extends Component {
         super()
 
         this.state = {
-            createSoundAtInterval: null
+            createSoundAtInterval: null,
+            playPause: "Play"
         }
 
         this.beep = this.beep.bind(this);
         this.runMetronomeSound = this.runMetronomeSound.bind(this);
         this.stopMetronomeSound = this.stopMetronomeSound.bind(this);
+        this.handleClickPlay = this.handleClickPlay.bind(this);
     }
 
     beep() {
@@ -31,21 +33,22 @@ class SoundMaker extends Component {
         clearInterval(this.state.createSoundAtInterval);
     }
 
-    // var interval = scope.setInterval(beep, 1000);
+    handleClick() {
+        if(this.state.createSoundAtInterval !== null) {
+          this.stopMetronomeSound();
+          this.setState({createSoundAtInterval: null});
+          this.setState({playPause: "Play"})
+        }
+        if(this.state.createSoundAtInterval === null) {
+            this.runMetronomeSound();
+            this.setState({playPause: "Stop"})
+        }
+    }
 
-
-    // function handleClickPlay(event) {
-
-    // }
-
-    // function handleClickPause(event) {
-
-    // }
     render() {
         return (
             <>
-                <button id="play" onClick={this.runMetronomeSound}>Play</button>
-                <button id="pause"onClick={this.stopMetronomeSound}>Pause</button>
+                <button id="play" onClick={this.handleClick}>{this.state.playPause}</button>
             </>
         )
     }
