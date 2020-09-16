@@ -1,10 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
+import MetronomeContainer from './containers/MetronomeContainer.js';
 import './App.css';
 
 function App() {
   return (
     <>
+      <MetronomeContainer />
     </>
   );
 }
