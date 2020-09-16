@@ -6,7 +6,7 @@ class SoundMaker extends Component {
         super()
 
         this.state = {
-            tempo: null
+            createSoundAtInterval: null
         }
 
         this.beep = this.beep.bind(this);
@@ -20,13 +20,15 @@ class SoundMaker extends Component {
     }
 
     runMetronomeSound() {
-         setInterval(() => {
-             this.beep();
-         }, 1000);
-    }
+         this.setState({createSoundAtInterval:
+            setInterval(() => {
+                this.beep();
+            }, 1000)
+        })
+    };
     
     stopMetronomeSound() {
-        clearInterval(this.runMetronomeSound);
+        clearInterval(this.state.createSoundAtInterval);
     }
 
     // var interval = scope.setInterval(beep, 1000);
