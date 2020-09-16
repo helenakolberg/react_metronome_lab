@@ -13,7 +13,7 @@ class SoundMaker extends Component {
         this.beep = this.beep.bind(this);
         this.runMetronomeSound = this.runMetronomeSound.bind(this);
         this.stopMetronomeSound = this.stopMetronomeSound.bind(this);
-        this.handleClickPlay = this.handleClickPlay.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     beep() {
