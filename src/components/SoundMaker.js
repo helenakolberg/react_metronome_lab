@@ -25,7 +25,7 @@ class SoundMaker extends Component {
          this.setState({createSoundAtInterval:
             setInterval(() => {
                 this.beep();
-            }, 1000)
+            }, this.props.tempo)
         })
     };
     
