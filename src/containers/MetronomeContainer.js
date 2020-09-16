@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import './MetronomeContainer.css';
 // import MetronomeSetter from '../components/MetronomeSetter.js';
 // import SoundMaker from '../components/SoundMaker.js';
 
-class MetroneContainer extends Component {
+class MetronomeContainer extends Component {
     constructor() {
         super()
 
@@ -38,10 +39,20 @@ class MetroneContainer extends Component {
     }
 
     handleChange(event) {
-        this.setState({ tempoValue: event.target.value })
-        const bpm = parseInt(event.target.value);
-        const milliseconds = 60000 / bpm;
-        this.setState({milliseconds});
+        if(this.state.createSoundAtInterval !== null) {
+            this.stopMetronomeSound();
+            this.setState({ tempoValue: event.target.value })
+            const bpm = parseInt(event.target.value);
+            const milliseconds = 60000 / bpm;
+            this.setState({milliseconds});
+            this.runMetronomeSound();
+        }
+        if(this.state.createSoundAtInterval === null) {
+            this.setState({ tempoValue: event.target.value })
+            const bpm = parseInt(event.target.value);
+            const milliseconds = 60000 / bpm;
+            this.setState({milliseconds});
+        }
     }
 
     handleClick() {
@@ -56,12 +67,9 @@ class MetroneContainer extends Component {
         }
     }
 
-
-
     render() {
-        
         return (
-            <>
+            <div id="container-wrapper">
                 <input
                     type="range"
                     name="tempo" 
@@ -72,12 +80,11 @@ class MetroneContainer extends Component {
                     onChange={this.handleChange}
                 />
                 <h4>{this.state.tempoValue} BPM</h4>
-                
                 <button id="play" onClick={this.handleClick}>{this.state.playPause}</button>
 
-            </>
+            </div>
         )
     }
 }
 
-export default MetroneContainer;
+export default MetronomeContainer;

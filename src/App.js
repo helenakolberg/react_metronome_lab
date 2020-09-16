@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   return (
     <>
+      <h1 id="metronome">Metronome</h1>
       <MetronomeContainer />
     </>
   );
